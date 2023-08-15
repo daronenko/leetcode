@@ -5,14 +5,14 @@
 class Solution {
 public:
     char findTheDifference(std::string s, std::string t) {
-        int ascii_sum = 0;
+        size_t ascii_sum = 0;
         for (size_t i = 0; i < s.size(); ++i) {
-            ascii_sum += int(s[i]);
-            ascii_sum -= int(t[i]);
+            ascii_sum -= int(s[i]);
+            ascii_sum += int(t[i]);
         }
-        ascii_sum -= int(t[t.size() - 1]);
+        ascii_sum += int(t[t.size() - 1]);
 
-        return char(std::abs(ascii_sum));
+        return char(ascii_sum);
     }
 };
 
