@@ -14,20 +14,30 @@ std::ostream& operator << (std::ostream& out, const std::vector<std::string>& ve
 
 class Solution {
 public:
-    std::vector<std::string> fullJustify(std::vector<std::string>& words, int maxWidth) {
+    std::vector<std::string> fullJustify(
+        std::vector<std::string>& words,
+        int max_width
+    ) {
         std::vector<std::string> result;
 
         int words_length = 0, words_count = 0;
         int begin = 0, end = 0;
         while (begin < words.size()) {
-            if (end < words.size() && words_length + words[end].length() + words_count <= maxWidth) {
+            if (
+                end < words.size()
+                && words_length + words[end].length() + words_count <= max_width
+            ) {
                 words_length += words[end++].length();
                 ++words_count;
             } else {
                 if (end - begin == 1 || end == words.size()) {
-                    result.push_back(_leftJustify(words, begin, end, maxWidth));
+                    result.push_back(
+                        _leftJustify(words, begin, end, max_width)
+                    );
                 } else {
-                    result.push_back(_centerJustify(words, begin, end, maxWidth, words_length));
+                    result.push_back(
+                        _centerJustify(words, begin, end, max_width, words_length)
+                    );
                 }
                 begin = end;
                 words_length = words_count = 0;
@@ -62,13 +72,13 @@ protected:
         const std::vector<std::string>& words,
         const int begin,
         const int end,
-        const int maxWidth,
+        const int max_width,
         const int words_length
     ) {
-        std::string result(maxWidth, ' ');
+        std::string result(max_width, ' ');
 
-        int spaces = (maxWidth - words_length) / (end - begin - 1);
-        int extra_spaces = (maxWidth - words_length) % (end - begin - 1);
+        int spaces = (max_width - words_length) / (end - begin - 1);
+        int extra_spaces = (max_width - words_length) % (end - begin - 1);
 
         int i = 0;
         for (int word_index = begin; word_index < end; ++word_index) {
