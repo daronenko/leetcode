@@ -11,8 +11,8 @@ class Solution {
         for (int i = 0; i < rows; ++i) {
             for (int j = 0; j < cols; ++j) {
                 int alive_count = 0;
-                for (int i_ = std::max(i - 1, 0); i_ < std::min(i + 2, cols); ++i_) {
-                    for (int j_ = std::max(j - 1, 0); j_ < std::min(j + 2, rows); ++j_) {
+                for (int i_ = std::max(i - 1, 0); i_ < std::min(i + 2, rows); ++i_) {
+                    for (int j_ = std::max(j - 1, 0); j_ < std::min(j + 2, cols); ++j_) {
                         alive_count += board[i_][j_] & 1;
                     }
                 }
