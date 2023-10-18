@@ -34,6 +34,7 @@ struct TreeNode {
 //         for (int i = in_left; i <= in_right; ++i) {
 //             if (inorder[i] == node->val) {
 //                 in_index = i;
+//                 break;
 //             }
 //         }
 //
