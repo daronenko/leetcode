@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <iterator>
 
 
 class Solution {
@@ -24,7 +23,7 @@ class Solution {
             carry /= 2;
         }
 
-        std::reverse(std::begin(answer), std::end(answer));
+        std::reverse(answer.begin(), answer.end());
         return answer;
     }
 };
